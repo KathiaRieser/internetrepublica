@@ -1,0 +1,43 @@
+<br>
+<div class="alert alert-success" role="alert"> 
+  <strong>JavaScript</strong>
+  <span> <xmp>
+      var aux = ['a','b','c','a','a','a','b','c','d','a']
+      var result = {}
+      
+      for(let i=0;  i <aux.length; i++){
+         if(!(aux[i] in result)){
+          let num = 1
+          for(let j=i+1; j < aux.length; j++){
+          if(aux[i]===aux[j])num++
+          } 
+          result[aux[i]]=num
+         }
+      }
+      
+      console.log(result) 
+  </xmp></span>
+</div>
+
+<div class="alert alert-info" role="alert"> 
+  <strong>PHP</strong> 
+  <span> <xmp>
+      $aux = ['a','b','c','a','a','a','b','c','d','a'];
+      $result = array();
+      
+      for ($i = 0; $i < count($aux); $i++) {  
+          if(!array_key_exists($aux[$i], $result)){
+            $num = 1;
+            for ($j = $i + 1; $j < count($aux); $j++) {
+              if($aux[$i] == $aux[$j]) $num ++;
+            }
+            $result[ $aux[$i]] = $num;
+          }
+      }
+      
+      foreach ($result as $key => $val) {
+        echo $key;
+        echo $val;
+      }
+  </xmp></span>
+</div>

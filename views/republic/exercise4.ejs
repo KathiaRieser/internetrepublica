@@ -1,0 +1,43 @@
+<br>
+<div class="alert alert-success" role="alert"> 
+  <strong>JavaScript</strong>
+  <span> <xmp>
+  require('dotenv').config();
+  const mongoose = require('mongoose');
+  const Employee = require('../models/Employee');
+  const fs = require('fs');
+  const parse = require('csv-parse');
+
+  mongoose.connect(process.env.MONGO_URL);
+
+  var employees=[];
+  var headers=[];
+  fs.createReadStream('../files/employee.csv')
+      .pipe(parse({delimiter: ','}))
+      .on('data', (csvrow) => {
+          if(headers.length===0){
+            headers = csvrow.slice()
+          }
+          else{
+            let employee = {};
+            for(let i=0; i<headers.length; i++){
+              employee[headers[i]] = csvrow[i]
+            }
+            employees.push(employee);  
+          }
+                
+      })
+      .on('end',function() {
+        Employee.create(employees, (err, docs) => {
+          if (err) {
+            throw err
+          };
+          console.log(`${docs.length} employees created`)
+          mongoose.connection.close();
+        });
+      });
+  </xmp></span>
+  <!--form action="/republic/exercise4" method="post">
+    <button type="submit" class="btn btn-success">Ejecutar</button>
+  </form-->
+</div>

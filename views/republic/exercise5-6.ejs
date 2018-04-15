@@ -1,0 +1,18 @@
+<br>
+<br>
+
+
+<div class="list-group">
+    <% employees.forEach((employee) => { %>
+        <div href="#" class="list-group-item">
+          <h4 class="list-group-item-heading"><%= employee.name %> <%= employee.surname %></h4>
+          <span><strong style="color:gray">User: </strong> <%= employee.user %> </span>
+          <br>
+          <span><strong style="color:gray">Pass: </strong> <%= employee.password %></span>
+          <a class="pull-right" href="/republic/exercise5-6/delete/<%= employee._id %>">Delete</a>
+        </div>
+    <%  }) %>
+</div>
+
+<br>
+<a class="pull-right" href="exercise5-6/employee/new">Add an employee</a>

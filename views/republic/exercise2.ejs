@@ -1,0 +1,39 @@
+<br>
+<br>
+<br>
+<!-- views/republic/exercise1.ejs -->
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 centered-form">
+        <form action="/republic/exercise2" method="post">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="address">Dirección</label>
+            <input type="text" name="address" class="form-control">
+          </div>
+          <div class="form-group">
+           <div class="form-check">
+              <label class="form-check-label"> <input name="fruits" type="checkbox" class="filled-in form-check-input" value="plátanos"> Plátanos</label>
+           </div>
+           <div class="form-check">
+            <label class="form-check-label"> <input name="fruits" type="checkbox" class="filled-in form-check-input" value="manzanas"> Manzanas</label>
+           </div>
+           <div class="form-check">
+            <label class="form-check-label"> <input name="fruits" type="checkbox" class="filled-in form-check-input" value="fresas"> Fresas</label>
+         </div>
+         <div class="form-check">
+          <label class="form-check-label"> <input name="fruits" type="checkbox" class="filled-in form-check-input" value="naranjas"> Naranjas</label>
+         </div> 
+          </div>
+          <button type="submit" class="btn btn-warning">Enviar</button>
+        </form>
+      </div>
+    </div>
+    <br>
+    <% if(message) { %>
+      <div class="alert alert-warning" role="alert"><%= message %></div>
+    <% }%>
+</div>
